@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Banking-System PW Suite" parallel="false" verbose="2">
+
+    <test name="Banking-System Home Page Test_chrome">
+        <classes>
+            <class name="tests.LoginPageTest" />
+            <class name="tests.WebAutomationTest" />
+            <class name="tests.SeleniumPracticePageTest" />
+            <class name="tests.HomepageTest" />
+
+        </classes>
+
+
+    </test>
+
+</suite>
