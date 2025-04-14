@@ -23,6 +23,7 @@ public class HomepageTest extends BaseTest {
         System.out.println("Actual balance after deposit: '" + balance + "'");
 
     }
+    //verify deposit successful notification
     @Test(priority = 3)
     public void testDepositEntryHisytory(){
         Assert.assertTrue(homePage.DepositmoneyEntryVisible(), "Deposit entry not found in history");
@@ -35,4 +36,12 @@ public class HomepageTest extends BaseTest {
         assertTrue(balance.contains("800"),"Withdrawal failed: balance was " + balance);
         System.out.println("Actual balance After withdrawals: '" + balance + "'");
     }
+    //verify withdraw successful notification
+
+    @Test(priority = 5)
+    public void testwithdrawalHisytory(){
+        Assert.assertTrue(homePage.WithdrawHistoryVisible(), "Withdrawal Amount not found in history");
+    }
+
+
 }

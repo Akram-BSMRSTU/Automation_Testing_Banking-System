@@ -18,6 +18,8 @@ public class Homepage {
     private String balance = "//p[@id='balance1']";
     private String withdrawButton = "//button[@id='withdraw1']";
     private String depositEntry = "//ul[@id='history1']/li[span[contains(text(), 'Deposit of $1000.00')]]";
+    private String withdrawHistory = "//ul[@id='history1']/li[span[contains(text(), 'Withdrawal of $200.00')]]";
+
 
 
 //    3.Method
@@ -36,13 +38,16 @@ public class Homepage {
         page.locator(depositButton).click();
     }
 
+    public boolean DepositmoneyEntryVisible(){
+        return  page.locator(depositEntry).isVisible();
+
+    }
     public void withdrawMoney(String amount){
         page.locator(amountInput).fill(amount);
         page.locator(withdrawButton).click();
     }
-
-    public boolean DepositmoneyEntryVisible(){
-        return  page.locator(depositEntry).isVisible();
+    public boolean  WithdrawHistoryVisible(){
+        return page.locator(withdrawHistory).isVisible();
 
     }
 
