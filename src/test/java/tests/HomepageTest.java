@@ -1,11 +1,11 @@
 package tests;
 
 import Pages.Homepage;
+import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class HomepageTest extends BaseTest {
 
@@ -23,8 +23,12 @@ public class HomepageTest extends BaseTest {
         System.out.println("Actual balance after deposit: '" + balance + "'");
 
     }
-
     @Test(priority = 3)
+    public void testDepositEntryHisytory(){
+        Assert.assertTrue(homePage.DepositmoneyEntryVisible(), "Deposit entry not found in history");
+    }
+
+    @Test(priority = 4)
     public void testwithdraw(){
         homePage.withdrawMoney("200");
         String balance = homePage.getBalance();
