@@ -21,8 +21,8 @@ public class LoginPage {
 
 //    3.Method
 public void nevigateToHomePage(){
-        page.locator(loginemail).fill("******");
-        page.locator(loginpassword).fill("******");
+        page.locator(loginemail).fill("student@ittrainingbd.com");
+        page.locator(loginpassword).fill("ittrainingbd");
     page.locator(loginButton).click(new Locator.ClickOptions().setForce(true));
 //        page.locator(loginButton).click();
 }
