@@ -25,8 +25,9 @@ public class HomepageTest extends BaseTest {
     }
     //verify deposit successful notification
     @Test(priority = 3)
-    public void testDepositEntryHisytory(){
+    public void testDepositEntryHisytory() throws InterruptedException {
         Assert.assertTrue(homePage.DepositmoneyEntryVisible(), "Deposit entry not found in history");
+        Thread.sleep(3000);
     }
 
     @Test(priority = 4)
@@ -41,6 +42,20 @@ public class HomepageTest extends BaseTest {
     @Test(priority = 5)
     public void testwithdrawalHisytory(){
         Assert.assertTrue(homePage.WithdrawHistoryVisible(), "Withdrawal Amount not found in history");
+    }
+    @Test(priority = 6)
+    public void testTransfer(){
+        homePage.transferMoney("100","0987654321");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test(priority = 7)
+    public void testtransferHisytory(){
+        Assert.assertTrue(homePage.isTransferSuccessful(), "Transfer is not successful ");
     }
 
 

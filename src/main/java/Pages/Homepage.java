@@ -19,6 +19,9 @@ public class Homepage {
     private String withdrawButton = "//button[@id='withdraw1']";
     private String depositEntry = "//ul[@id='history1']/li[span[contains(text(), 'Deposit of $1000.00')]]";
     private String withdrawHistory = "//ul[@id='history1']/li[span[contains(text(), 'Withdrawal of $200.00')]]";
+    private String transferButton ="//button[@id='transfer1']";
+    private String transferhistory="//span[contains(text(),'Transfer of $100.00 to Account 0987654321')]";
+    private String transferhistoryuser2="//span[contains(text(),'Transferred $100.00 to Account 1234567890')]";
 
 
 
@@ -42,6 +45,8 @@ public class Homepage {
         return  page.locator(depositEntry).isVisible();
 
     }
+
+//    withdraw
     public void withdrawMoney(String amount){
         page.locator(amountInput).fill(amount);
         page.locator(withdrawButton).click();
@@ -50,6 +55,19 @@ public class Homepage {
         return page.locator(withdrawHistory).isVisible();
 
     }
+
+//    transfer
+    public void transferMoney(String amount, String accountNumber) {
+        page.onceDialog(dialog -> {
+            dialog.accept(accountNumber);
+        });
+        page.locator(amountInput).fill(amount);
+        page.locator(transferButton).click();
+    }
+    public boolean isTransferSuccessful() {
+        return page.locator(transferhistoryuser2).isVisible() && page.locator(transferhistory).isVisible();
+    }
+
 
 
 }
