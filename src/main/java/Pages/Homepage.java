@@ -10,7 +10,6 @@ public class Homepage {
         this.page = page;
     }
 
-
 //    1.Locator
     private String pageheading = "//h1[normalize-space()='Welcome to Your Bank']";
     private String amountInput ="//input[@id='amount1']";
@@ -22,6 +21,7 @@ public class Homepage {
     private String transferButton ="//button[@id='transfer1']";
     private String transferhistory="//span[contains(text(),'Transfer of $100.00 to Account 0987654321')]";
     private String transferhistoryuser2="//span[contains(text(),'Transferred $100.00 to Account 1234567890')]";
+    private String addinterestButton="//button[@id='interest1']";
 
 
 
@@ -68,6 +68,11 @@ public class Homepage {
         return page.locator(transferhistoryuser2).isVisible() && page.locator(transferhistory).isVisible();
     }
 
+//    interest
+
+    public void addinterest(){
+        page.locator(addinterestButton).click();
+    }
 
 
 }

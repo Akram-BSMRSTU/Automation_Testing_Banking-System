@@ -58,5 +58,13 @@ public class HomepageTest extends BaseTest {
         Assert.assertTrue(homePage.isTransferSuccessful(), "Transfer is not successful ");
     }
 
+    @Test(priority = 8)
+    public void testaddinterest(){
+        String beforeBalanceadded = homePage.getBalance();
+        homePage.addinterest();
+        String afterBalanceadded = homePage.getBalance();
+        System.out.println("Before interest balance is "+beforeBalanceadded);
+        System.out.println("Before interest balance is "+afterBalanceadded);
 
+    }
 }
