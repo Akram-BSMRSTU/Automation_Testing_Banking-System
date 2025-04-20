@@ -107,11 +107,7 @@ page.onceDialog(dialog -> {
 ### Handling Confirm Dialog for Reset
 
 ```java
-page.onceDialog(dialog -> {
-    if (dialog.type().equals("confirm")) {
-        dialog.accept();
-    }
-});
+page.onceDialog(dialog -> dialog.accept());
 ```
 
 ## 📌 Notes
