@@ -10,7 +10,7 @@ This project is an automation test suite for a web-based **Banking Application**
 - **Automation Tool**: Playwright for Java
 - **Build Tool**: Maven
 - **Test Framework**: TestNG
-- **Browser**: Firefox (via Playwright)
+- **Browser**: Firefox ,Chromium,Safari,Chrome(via Playwright)
 
 ## 📁 Project Structure
 
