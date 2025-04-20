@@ -22,6 +22,7 @@ public class Homepage {
     private String transferhistory="//span[contains(text(),'Transfer of $100.00 to Account 0987654321')]";
     private String transferhistoryuser2="//span[contains(text(),'Transferred $100.00 to Account 1234567890')]";
     private String addinterestButton="//button[@id='interest1']";
+    private String resetButton="//button[@id='reset1']";
 
 
 
@@ -74,5 +75,13 @@ public class Homepage {
         page.locator(addinterestButton).click();
     }
 
+//    ResetAccount
+public void resetAccount() {
+    // Step 1: Handle the confirmation dialog
+    page.onceDialog(dialog -> dialog.accept());
+    page.locator(resetButton).click();
+    };
 
 }
+
+

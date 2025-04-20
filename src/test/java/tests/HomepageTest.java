@@ -59,12 +59,22 @@ public class HomepageTest extends BaseTest {
     }
 
     @Test(priority = 8)
-    public void testaddinterest(){
+    public void testaddinterest() throws InterruptedException {
         String beforeBalanceadded = homePage.getBalance();
         homePage.addinterest();
         String afterBalanceadded = homePage.getBalance();
         System.out.println("Before interest balance is "+beforeBalanceadded);
         System.out.println("Before interest balance is "+afterBalanceadded);
+        Thread.sleep(3000);
 
     }
+
+    @Test(priority = 9)
+    public void testResetFunctionality() {
+        homePage.resetAccount();
+        String balance = homePage.getBalance();
+        System.out.println("After reset balance is "+balance);
+        Assert.assertEquals(balance, "$0.00", "Reset failed: Balance was not reset to $0.00");
+    }
+
 }
