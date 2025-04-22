@@ -2,6 +2,8 @@ package tests;
 
 import Pages.Homepage;
 import com.microsoft.playwright.assertions.PlaywrightAssertions;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,6 +18,7 @@ public class HomepageTest extends BaseTest {
     }
 
     @Test(priority = 2)
+    @Severity(SeverityLevel.CRITICAL)
     public void testDeposit(){
         homePage.DepositMoney("1000");
         String balance = homePage.getBalance();
@@ -25,12 +28,14 @@ public class HomepageTest extends BaseTest {
     }
     //verify deposit successful notification
     @Test(priority = 3)
+    @Severity(SeverityLevel.CRITICAL)
     public void testDepositEntryHisytory() throws InterruptedException {
         Assert.assertTrue(homePage.DepositmoneyEntryVisible(), "Deposit entry not found in history");
         Thread.sleep(3000);
     }
 
     @Test(priority = 4)
+    @Severity(SeverityLevel.CRITICAL)
     public void testwithdraw(){
         homePage.withdrawMoney("200");
         String balance = homePage.getBalance();
@@ -40,10 +45,12 @@ public class HomepageTest extends BaseTest {
     //verify withdraw successful notification
 
     @Test(priority = 5)
+    @Severity(SeverityLevel.CRITICAL)
     public void testwithdrawalHisytory(){
         Assert.assertTrue(homePage.WithdrawHistoryVisible(), "Withdrawal Amount not found in history");
     }
     @Test(priority = 6)
+    @Severity(SeverityLevel.CRITICAL)
     public void testTransfer(){
         homePage.transferMoney("100","0987654321");
         try {
@@ -70,6 +77,7 @@ public class HomepageTest extends BaseTest {
     }
 
     @Test(priority = 9)
+    @Severity(SeverityLevel.CRITICAL)
     public void testResetFunctionality() {
         homePage.resetAccount();
         String balance = homePage.getBalance();

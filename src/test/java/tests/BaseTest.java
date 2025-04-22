@@ -19,9 +19,6 @@ public class BaseTest {
     protected LoginPage loginPage;
     protected WebAutomationPage webautomationPage;
     protected SeleniumPracticePage seleniumPracticePage;
-//    protected CommonPage commonPage;
-//    protected LekhokPage lekhokPage;
-//    protected CheckoutPage checkoutpage;
 
 
     @BeforeClass
@@ -35,9 +32,6 @@ public class BaseTest {
         loginPage = new LoginPage(page);
         webautomationPage = new WebAutomationPage(page);
         seleniumPracticePage = new SeleniumPracticePage(page);
-//        commonPage = new CommonPage(page);
-//        lekhokPage = new LekhokPage(page);
-//        checkoutpage = new CheckoutPage(page);
 
         System.out.println("Setup completed. Login initialized: " + (loginPage != null));
     }

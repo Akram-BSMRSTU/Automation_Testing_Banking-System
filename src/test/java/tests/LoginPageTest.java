@@ -1,6 +1,8 @@
 package tests;
 
 import Pages.LoginPage;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,6 +23,7 @@ public class LoginPageTest extends BaseTest {
         Assert.assertEquals(pageheading,"Testing and Learning Hub");
     }
     @Test(priority = 3)
+    @Severity(SeverityLevel.CRITICAL)
     public void loginbuttonclicked() throws InterruptedException{
         loginPage.nevigateToHomePage();
         Thread.sleep(3000);

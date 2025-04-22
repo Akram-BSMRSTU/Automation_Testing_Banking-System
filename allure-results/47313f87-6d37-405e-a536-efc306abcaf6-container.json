@@ -1,0 +1,1 @@
+{"uuid":"47313f87-6d37-405e-a536-efc306abcaf6","name":"Banking-System PW Suite","children":["bdc8afb2-8d44-4a35-97cd-86f6989dee9b"],"befores":[],"afters":[{"name":"teardown","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1745319013790,"stop":1745319016194}],"start":1745318943704,"stop":1745319016194}
