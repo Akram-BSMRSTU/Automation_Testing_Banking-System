@@ -2,7 +2,7 @@
 
 ## 📋 Project Overview
 
-This project is an automation test suite for a web-based **Banking Application** using **Playwright Java**. The app supports basic banking operations such as Deposit, Withdrawal, Transfer, Add Interest, and Reset functionalities. It also includes transaction history tracking.&#x20;
+This project is an automation test suite for a web-based **Banking Application** using **Playwright Java**. The app supports basic banking operations such as Deposit, Withdrawal, Transfer, Add Interest, and Reset functionalities. It also includes transaction history tracking.
 
 ## 🚀 Tools & Technologies
 
@@ -10,7 +10,8 @@ This project is an automation test suite for a web-based **Banking Application**
 - **Automation Tool**: Playwright for Java
 - **Build Tool**: Maven
 - **Test Framework**: TestNG
-- **Browser**: Firefox ,Chromium,Safari,Chrome(via Playwright)
+- **Browser**: Firefox (via Playwright)
+- **Reporting**: Allure Report
 
 ## 📁 Project Structure
 
@@ -76,7 +77,7 @@ project-root
 
 ### 🔹 Transaction History Entry
 
-- Validates history list for new transactions like deposit or transfer.
+- Validates the history list for new transactions like deposit or transfer.
 - XPaths used to verify dynamic list entries with partial text matching.
 
 ## ⚙️ Page Object Model (POM)
@@ -107,19 +108,39 @@ page.onceDialog(dialog -> {
 ### Handling Confirm Dialog for Reset
 
 ```java
-page.onceDialog(dialog -> dialog.accept());
+page.onceDialog(dialog -> {
+    if (dialog.type().equals("confirm")) {
+        dialog.accept();
+    }
+});
 ```
 
-## 📌 Notes
+## 📈 Allure Report Integration
 
-- XPath is used to select dynamic elements like transaction entries:
+Allure is integrated to generate rich and interactive test reports. To generate the Allure report:
 
-```xpath
-//li[contains(text(),'Deposit of $1000')]
+### 🔧 Add to pom.xml:
+
+```xml
+<plugin>
+  <groupId>io.qameta.allure</groupId>
+  <artifactId>allure-maven</artifactId>
+  <version>2.10.0</version>
+</plugin>
 ```
 
-- Used `contains()` and `normalize-space()` for stable matching.
-- Waits are added where needed using `waitForTimeout()` or proper Playwright waits.
+### 🧪 Run Tests & Generate Report:
+
+```bash
+mvn clean test
+allure generate .\allure-results\ --clean
+allure open .\allure-report\
+```
+
+### 📸 Sample Report Output:
+
+- Test case details with steps
+- Graphs and visual insights
 
 ## 📂 How to Run Tests
 
@@ -131,8 +152,35 @@ page.onceDialog(dialog -> dialog.accept());
 mvn test
 ```
 
-## 📓 Author
+4. Generate Allure Report:
+
+```sh
+allure generate .\allure-results\ --clean
+allure open .\allure-report\
+```
+
+### 📸 Allure Report Screenshot
+![Image](https://github.com/user-attachments/assets/e0568d60-c7b9-4d91-8b43-91a503e51f4c)
+
+
+
+## 📃 Notes
+
+- XPath is used to select dynamic elements like transaction entries:
+
+```xpath
+//li[contains(text(),'Deposit of $1000')]
+```
+
+- Used `contains()` and `normalize-space()` for stable matching.
+- Waits are added where needed using `waitForTimeout()` or proper Playwright waits.
+
+## 📂 Author
 
 Automation developed by Akram Khan using Playwright Java based on real Banking App features.
+
+---
+
+
 
 
