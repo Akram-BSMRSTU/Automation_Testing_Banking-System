@@ -2,6 +2,8 @@ package Factory;
 
 import com.microsoft.playwright.*;
 
+import java.awt.*;
+
 public class PlaywrightFactory {
 
     private static PlaywrightFactory instance;
@@ -22,6 +24,11 @@ public class PlaywrightFactory {
 
     // Initialize browser (only once)
     public Page initBrowser(String browserName) {
+
+
+        Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = (int)screensize.getWidth();
+        int height = (int)screensize.getHeight();
         if (playwright == null) {
             System.out.println("Starting " + browserName);
             playwright = Playwright.create();
@@ -48,7 +55,7 @@ public class PlaywrightFactory {
                     break;
             }
 
-            browserContext = browser.newContext();
+            browserContext = browser.newContext(new Browser.NewContextOptions().setViewportSize(width,height));
             page = browserContext.newPage();
             page.navigate("https://testing-and-learning-hub.vercel.app/index.html");
         }
