@@ -31,18 +31,18 @@ public class Homepage {
     public String getBalance(){
         return page.locator(balance).textContent();
     }
-    public String headlineofPage(){
+    public String headlineOfHomePage(){
         String headerText = page.locator(pageheading).textContent();
         System.out.println("Page Header: " + headerText);
         return headerText;
     }
 
-    public void DepositMoney(String amount){
+    public void depositMoney(String amount){
         page.locator(amountInput).fill(amount);
         page.locator(depositButton).click();
     }
 
-    public boolean DepositmoneyEntryVisible(){
+    public boolean depositMoneyEntryVisible(){
         return  page.locator(depositEntry).isVisible();
 
     }
@@ -52,7 +52,7 @@ public class Homepage {
         page.locator(amountInput).fill(amount);
         page.locator(withdrawButton).click();
     }
-    public boolean  WithdrawHistoryVisible(){
+    public boolean  withdrawHistoryVisible(){
         return page.locator(withdrawHistory).isVisible();
 
     }
@@ -71,7 +71,7 @@ public class Homepage {
 
 //    interest
 
-    public void addinterest(){
+    public void addInterest(){
         page.locator(addinterestButton).click();
     }
 

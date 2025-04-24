@@ -17,9 +17,8 @@ public WebAutomationPage(Page page){
 }
 
 //    3.Method
-    public void navigatetopracticeSite(){
+    public void navigateToPracticeSite(){
         page.locator(seleniumProject_getStartedbtn).click();
     }
-
 
 }

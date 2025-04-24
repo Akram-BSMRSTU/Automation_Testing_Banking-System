@@ -12,15 +12,15 @@ import static org.testng.Assert.*;
 public class HomepageTest extends BaseTest {
 
     @Test(priority = 1)
-    public void headingtest(){
-        String pageheading = homePage.headlineofPage();
+    public void testHomePageHeading(){
+        String pageheading = homePage.headlineOfHomePage();
         assertEquals(pageheading," Welcome to Your Bank");
     }
 
     @Test(priority = 2)
     @Severity(SeverityLevel.CRITICAL)
     public void testDeposit(){
-        homePage.DepositMoney("1000");
+        homePage.depositMoney("1000");
         String balance = homePage.getBalance();
         Assert.assertTrue(balance.contains("1000.00"),"Deposit failed: balance was " + balance);
         System.out.println("Actual balance after deposit: '" + balance + "'");
@@ -30,7 +30,7 @@ public class HomepageTest extends BaseTest {
     @Test(priority = 3)
     @Severity(SeverityLevel.CRITICAL)
     public void testDepositEntryHisytory() throws InterruptedException {
-        Assert.assertTrue(homePage.DepositmoneyEntryVisible(), "Deposit entry not found in history");
+        Assert.assertTrue(homePage.depositMoneyEntryVisible(), "Deposit entry not found in history");
         Thread.sleep(3000);
     }
 
@@ -46,8 +46,8 @@ public class HomepageTest extends BaseTest {
 
     @Test(priority = 5)
     @Severity(SeverityLevel.CRITICAL)
-    public void testwithdrawalHisytory(){
-        Assert.assertTrue(homePage.WithdrawHistoryVisible(), "Withdrawal Amount not found in history");
+    public void testWithdrawalHisytory(){
+        Assert.assertTrue(homePage.withdrawHistoryVisible(), "Withdrawal Amount not found in history");
     }
     @Test(priority = 6)
     @Severity(SeverityLevel.CRITICAL)
@@ -61,14 +61,14 @@ public class HomepageTest extends BaseTest {
     }
 
     @Test(priority = 7)
-    public void testtransferHisytory(){
+    public void testTransferHisytory(){
         Assert.assertTrue(homePage.isTransferSuccessful(), "Transfer is not successful ");
     }
 
     @Test(priority = 8)
-    public void testaddinterest() throws InterruptedException {
+    public void testAddInterest() throws InterruptedException {
         String beforeBalanceadded = homePage.getBalance();
-        homePage.addinterest();
+        homePage.addInterest();
         String afterBalanceadded = homePage.getBalance();
         System.out.println("Before interest balance is "+beforeBalanceadded);
         System.out.println("Before interest balance is "+afterBalanceadded);

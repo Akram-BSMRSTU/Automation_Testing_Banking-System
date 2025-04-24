@@ -26,13 +26,13 @@ public void nevigateToHomePage(){
     page.locator(loginButton).click(new Locator.ClickOptions().setForce(true));
 //        page.locator(loginButton).click();
 }
-public void nevigatetoautomationTesting(){
+public void nevigateToAutomationTesting(){
         page.locator(getStarted_Autmation).click();
     }
     public String getLoginPagetitile(){
         return page.title();
     }
-    public String headlineofPage(){
+    public String headLineOfPage(){
         String text = page.locator("//h2[normalize-space()='Testing and Learning Hub']").textContent();
         System.out.println("Element Text: " + text);
         return text;
