@@ -39,7 +39,7 @@ public class PlaywrightFactory {
                     break;
 
                 case "firefox":
-                    browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+                    browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(true));
                     break;
 
                 case "safari":
