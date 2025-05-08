@@ -25,10 +25,11 @@ public class PlaywrightFactory {
     // Initialize browser (only once)
     public Page initBrowser(String browserName) {
 
-
-        Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
-        int width = (int)screensize.getWidth();
-        int height = (int)screensize.getHeight();
+//        if(!GraphicsEnvironment.isHeadless()){
+//        Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+//        }
+//        int width = (int)screensize.getWidth();
+//        int height = (int)screensize.getHeight();
         if (playwright == null) {
             System.out.println("Starting " + browserName);
             playwright = Playwright.create();
@@ -54,8 +55,8 @@ public class PlaywrightFactory {
                     browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
                     break;
             }
-
-            browserContext = browser.newContext(new Browser.NewContextOptions().setViewportSize(width,height));
+            browserContext = browser.newContext();
+//            browserContext = browser.newContext(new Browser.NewContextOptions().setViewportSize(width,height));
             page = browserContext.newPage();
             page.navigate("https://testing-and-learning-hub.vercel.app/index.html");
         }
